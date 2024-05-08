@@ -8,10 +8,8 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Compares two \
 configuration files and shows a difference.")
-    parser.add_argument("-f", "--format",
-			help="set format of output")
+    parser.add_argument("-f", "--format", help="set format of output")
     parser.add_argument("first_file second_file")
-
     parser.parse_args()
 
 
