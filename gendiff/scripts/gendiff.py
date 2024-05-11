@@ -16,11 +16,8 @@ def parser_arg():
 
 
 def get_fixture_path(file_name):
-    return Path(Path.home() / 'python-project-50/gendiff/fixtures' / file_name)
+    return Path(Path.home() / 'python-project-50/tests/fixtures' / file_name)
 #    return Path(Path(__file__).parent.absolute() / 'fixtures' / file_name)
-
-
-
 
 
 def generate_diff(path_file1, path_file2):
