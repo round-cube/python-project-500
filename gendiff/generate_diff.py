@@ -4,7 +4,6 @@ from pathlib import Path
 
 def get_fixture_path(file_name):
     return Path(Path() / 'tests' / 'fixtures' / file_name)
-    # return Path(Path(__file__).parent.absolute() / 'fixtures' / file_name)
 
 
 def generate_diff(path_file1, path_file2):
