@@ -1,16 +1,9 @@
-import json
-from pathlib import Path
-
-
-def get_fixture_path(file_name):
-    return Path(Path() / 'tests' / 'fixtures' / file_name)
+from gendiff.tools.parse_file import get_dict_from_file
 
 
 def generate_diff(path_file1, path_file2):
-    p1 = get_fixture_path(path_file1)
-    p2 = get_fixture_path(path_file2)
-    d1 = json.load(open(p1))
-    d2 = json.load(open(p2))
+    d1 = get_dict_from_file(path_file1)
+    d2 = get_dict_from_file(path_file2)
     res = {}
     keys = sorted(d1.keys() | d2.keys())
     for key in keys:

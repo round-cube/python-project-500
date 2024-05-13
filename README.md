@@ -13,3 +13,8 @@
 _Шаг 3_
 
 [![asciicast](https://asciinema.org/a/6xBWfg1A2rkpCiAbZlE25obe8.svg)](https://asciinema.org/a/6xBWfg1A2rkpCiAbZlE25obe8)
+
+
+_Шаг 5_
+
+[![asciicast](https://asciinema.org/a/uU51qzr8ekHip6QPfprbj3Yxw.svg)](https://asciinema.org/a/uU51qzr8ekHip6QPfprbj3Yxw)
