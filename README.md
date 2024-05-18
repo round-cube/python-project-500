@@ -10,6 +10,7 @@
 
 # Проект Вычислитель отличий
 
+
 _Шаг 3_
 
 [![asciicast](https://asciinema.org/a/6xBWfg1A2rkpCiAbZlE25obe8.svg)](https://asciinema.org/a/6xBWfg1A2rkpCiAbZlE25obe8)
@@ -18,3 +19,8 @@ _Шаг 3_
 _Шаг 5_
 
 [![asciicast](https://asciinema.org/a/uU51qzr8ekHip6QPfprbj3Yxw.svg)](https://asciinema.org/a/uU51qzr8ekHip6QPfprbj3Yxw)
+
+
+_Шаг 6_
+
+[![asciicast](https://asciinema.org/a/aNBaJjPR2MDK31zitVYRXT1YN.svg)](https://asciinema.org/a/aNBaJjPR2MDK31zitVYRXT1YN)
