@@ -3,12 +3,21 @@ from gendiff.generate_diff import generate_diff
 
 
 def test_generate_diff_json():
-    assert generate_diff('file1.json', 'file2.json') == corr_answer
+    assert generate_diff('file1.json', 'file2.json', 'stylish') == corr_answer_stylish
 
 def test_generate_diff_yml():
-    assert generate_diff('file1.yml', 'file2.yml') == corr_answer
+    assert generate_diff('file1.yml', 'file2.yml', 'stylish') == corr_answer_stylish
 
-corr_answer = \
+
+def test_generate_diff_json():
+    assert generate_diff('file1.json', 'file2.json', 'plain') == corr_answer_plain
+
+def test_generate_diff_yml():
+    assert generate_diff('file1.yml', 'file2.yml', 'plain') == corr_answer_plain
+
+
+
+corr_answer_stylish = \
 '''{
     common: {
       + follow: false
@@ -53,3 +62,17 @@ corr_answer = \
         fee: 100500
     }
 }'''
+
+
+corr_answer_plain = \
+'''Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]'''

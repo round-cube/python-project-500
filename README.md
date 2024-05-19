@@ -24,3 +24,8 @@ _Шаг 5_
 _Шаг 6_
 
 [![asciicast](https://asciinema.org/a/aNBaJjPR2MDK31zitVYRXT1YN.svg)](https://asciinema.org/a/aNBaJjPR2MDK31zitVYRXT1YN)
+
+
+_Шаг 7_
+
+[![asciicast](https://asciinema.org/a/O7zdKZJuhpu29kfMklPHxWnqW.svg)](https://asciinema.org/a/O7zdKZJuhpu29kfMklPHxWnqW)

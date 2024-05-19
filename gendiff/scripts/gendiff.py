@@ -6,7 +6,7 @@ from gendiff.tools.argparse import parser_arg
 
 def main():
     path_file1, path_file2, format_name = parser_arg()
-    diff = generate_diff(path_file1, path_file2)
+    diff = generate_diff(path_file1, path_file2, format_name)
     print(diff)
 
 
