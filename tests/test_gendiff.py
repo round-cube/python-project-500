@@ -10,6 +10,8 @@ from pathlib import Path
         ('file1.yml', 'file2.yml', 'corr_answer_stylish.txt', 'stylish'),
         ('file1.json', 'file2.json', 'corr_answer_plain.txt', 'plain'),
         ('file1.yml', 'file2.yml', 'corr_answer_plain.txt', 'plain'),
+        ('file1.json', 'file2.json', 'corr_answer_json.json', 'json'),
+        ('file1.yml', 'file2.yml', 'corr_answer_json.json', 'json'),
     ]
 )
 

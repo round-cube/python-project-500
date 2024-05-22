@@ -29,3 +29,8 @@ _Шаг 6_
 _Шаг 7_
 
 [![asciicast](https://asciinema.org/a/O7zdKZJuhpu29kfMklPHxWnqW.svg)](https://asciinema.org/a/O7zdKZJuhpu29kfMklPHxWnqW)
+
+
+_Шаг 8_
+
+[![asciicast](https://asciinema.org/a/snV9puiOyRPkTkJXNz4zKCBiP.svg)](https://asciinema.org/a/snV9puiOyRPkTkJXNz4zKCBiP)
