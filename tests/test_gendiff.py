@@ -17,7 +17,6 @@ from pathlib import Path
 
 
 def test_generate_diff(file1, file2, file_answer, form_name):
-    p = Path(Path() / 'tests' / 'fixtures' / file_answer)
-    with open(p) as f:
+    with open(Path() / 'tests/fixtures' / file_answer) as f:
         corr_answer = f.read()
     assert generate_diff(file1, file2, form_name) == corr_answer
