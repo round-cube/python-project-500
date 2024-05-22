@@ -17,11 +17,9 @@ package-install:
 make lint:
 	poetry run flake8 gendiff
 
-# test:
-#	poetry run pytest
+test:
+	poetry run pytest
 
-# test-coverage:
-#	poetry run coverage run -m pytest 
-#	poetry run coverage xml
-
-# .PHONY: gendiff
+test-coverage:
+	poetry run coverage run -m pytest 
+	poetry run coverage xml

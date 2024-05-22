@@ -16,8 +16,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 prompt = "^0.4.1"
-
 pyyaml = "^6.0.1"
+
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"
 coverage = "^5.5"
