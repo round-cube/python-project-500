@@ -14,8 +14,6 @@ from pathlib import Path
         ('file1.yml', 'file2.yml', 'corr_answer_json.json', 'json'),
     ]
 )
-
-
 def test_generate_diff(file1, file2, file_answer, form_name):
     with open(Path() / 'tests/fixtures' / file_answer) as f:
         corr_answer = f.read()
