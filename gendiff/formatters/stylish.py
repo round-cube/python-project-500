@@ -1,8 +1,7 @@
 def stylish(d_list, lvl=0):
     res = '{\n'
-    ind = '  '
-    for i in range(lvl):
-        ind = ind + '    '
+    ind = ' ' * 2
+    ind = ind + ind * 2 * lvl
     d_list.sort(key=lambda x: x['name'])
 
     for node in d_list:
@@ -20,6 +19,8 @@ def stylish(d_list, lvl=0):
                 op = '+'
             elif node['status'] == 'deleted':
                 op = '-'
+        if not node['status']:
+            raise ValueError('Invalid type!')
         res = res + f"{ind}{op} {node['name']}: {data}\n"
     res = res + ind[:-2] + '}'
     return res

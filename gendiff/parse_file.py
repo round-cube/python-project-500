@@ -16,3 +16,5 @@ def open_file(path_file, file_ext):
             return json.load(f)
         elif file_ext.lower() == '.yml' or file_ext.lower() == '.yaml':
             return yaml.safe_load(f)
+        else:
+            raise ValueError('Files not found!')

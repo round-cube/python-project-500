@@ -31,6 +31,8 @@ def get_diff_plain(d_list, path=''):
                 f"From {ch_bef} to {ch_aft}"
             )
             res.append(diff)
+        if not node['status']:
+            raise ValueError('Invalid type!')
     return res
 
 
