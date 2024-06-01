@@ -1,5 +1,6 @@
 def stylish(d_list, lvl=0):
-    res = '{\n'
+    res = []
+    res.append('{\n')
     ind = ' ' * 2
     ind = ind + ind * 2 * lvl
     d_list.sort(key=lambda x: x['name'])
@@ -10,7 +11,7 @@ def stylish(d_list, lvl=0):
             data = stylish(node['children'], lvl + 1)
         elif node['status'] == 'changed':
             data = format_data(node['data before'], ind)
-            res = res + f"{ind}- {node['name']}: {data}\n"
+            res.append(f"{ind}- {node['name']}: {data}\n")
             data = format_data(node['data after'], ind)
             op = '+'
         else:
@@ -21,9 +22,9 @@ def stylish(d_list, lvl=0):
                 op = '-'
         if not node['status']:
             raise ValueError('Invalid type!')
-        res = res + f"{ind}{op} {node['name']}: {data}\n"
-    res = res + ind[:-2] + '}'
-    return res
+        res.append(f"{ind}{op} {node['name']}: {data}\n")
+    res.append(ind[:-2] + '}')
+    return ''.join(res)
 
 
 def format_data(data, ind):
