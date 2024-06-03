@@ -8,7 +8,6 @@ publish:
 	poetry publish --dry-run
 
 package-install:
-#	poetry build
 	python3 -m pip install --force-reinstall --user dist/*.whl
 
 make lint:
@@ -22,6 +21,3 @@ test-coverage:
 	poetry run coverage xml
 
 check: selfcheck test lint
-
-build: check
-	poetry build
