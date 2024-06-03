@@ -20,4 +20,12 @@ test-coverage:
 	poetry run coverage run -m pytest 
 	poetry run coverage xml
 
+selfcheck:
+	poetry check
+
 check: selfcheck test lint
+
+build: check
+	poetry build
+
+.PHONY: install test lint selfcheck check build
