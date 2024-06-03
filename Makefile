@@ -20,3 +20,5 @@ test:
 test-coverage:
 	poetry run coverage run -m pytest 
 	poetry run coverage xml
+
+check: selfcheck test lint
