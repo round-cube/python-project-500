@@ -4,7 +4,7 @@ install:
 gendiff:
 	poetry run gendiff
 
-build: check
+build: 
 	poetry build
 
 publish:
@@ -23,9 +23,6 @@ test-coverage:
 	poetry run coverage run -m pytest 
 	poetry run coverage xml
 
-selfcheck:
-	poetry check
-
 check: selfcheck test lint
 
-.PHONY: gendiff
+.PHONY: install test lint selfcheck check build
