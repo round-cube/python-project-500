@@ -4,10 +4,11 @@ def stylish(d_list, lvl=0):
     ind = ' ' * 2
     ind = ind + ind * 2 * lvl
     d_list.sort(key=lambda x: x['name'])
-
     for node in d_list:
         op = ' '
-        if node['status'] == 'nested':
+        if not node['status']:
+            raise ValueError('Invalid type!')
+        elif node['status'] == 'nested':
             data = stylish(node['children'], lvl + 1)
         elif node['status'] == 'changed':
             data = format_data(node['data before'], ind)
@@ -16,12 +17,11 @@ def stylish(d_list, lvl=0):
             op = '+'
         else:
             data = format_data(node['data'], ind)
-            if node['status'] == 'added':
-                op = '+'
-            elif node['status'] == 'deleted':
-                op = '-'
-        if not node['status']:
-            raise ValueError('Invalid type!')
+            match node['status']:
+                case 'added':
+                    op = '+'
+                case 'deleted':
+                    op = '-'
         res.append(f"{ind}{op} {node['name']}: {data}\n")
     res.append(ind[:-2] + '}')
     return ''.join(res)

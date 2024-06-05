@@ -8,29 +8,26 @@ def get_diff_plain(d_list, path=''):
     res = []
     for node in d_list:
         path_to_ch = path + node['name']
-        if node['status'] == 'nested':
-            path_to_ch = path_to_ch + '.'
-            diff = get_diff_plain(node['children'], path_to_ch)
-            res.extend(diff)
-        elif node['status'] == 'added':
-            ch = create_change(node['data'])
-            diff = (
-                f"Property '{path_to_ch}' was added "
-                f"with value: {ch}"
-            )
-            res.append(diff)
-        elif node['status'] == 'deleted':
-            ch = create_change(node['data'])
-            diff = "Property '{}' was removed".format(path_to_ch)
-            res.append(diff)
-        elif node['status'] == 'changed':
-            ch_bef = create_change(node['data before'])
-            ch_aft = create_change(node['data after'])
-            diff = (
-                f"Property '{path_to_ch}' was updated. "
-                f"From {ch_bef} to {ch_aft}"
-            )
-            res.append(diff)
+        match node['status']:
+            case 'nested':
+                path_to_ch += '.'
+                diff = get_diff_plain(node['children'], path_to_ch)
+                res.extend(diff)
+            case 'added':
+                ch = create_change(node['data'])
+                diff = (f"Property '{path_to_ch}' was added "
+                        f"with value: {ch}")
+                res.append(diff)
+            case 'deleted':
+                ch = create_change(node['data'])
+                diff = "Property '{}' was removed".format(path_to_ch)
+                res.append(diff)
+            case 'changed':
+                ch_bef = create_change(node['data before'])
+                ch_aft = create_change(node['data after'])
+                diff = (f"Property '{path_to_ch}' was updated. "
+                        f"From {ch_bef} to {ch_aft}")
+                res.append(diff)
         if not node['status']:
             raise ValueError('Invalid type!')
     return res
