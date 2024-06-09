@@ -39,7 +39,7 @@ jobs:
       # run tests!
       - run:
           name: Run Tests and Code Coverage
-          command: |
+          command: 
             ./cc-test-reporter before-build
             yarn lint && yarn test
             ./cc-test-reporter after-build --debug -t lcov --exit-code $?
