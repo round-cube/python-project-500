@@ -1,4 +1,4 @@
-def plain(d_list):
+def create_plain(d_list):
     d_list.sort(key=lambda x: x['name'])
     res = get_diff_plain(d_list)
     return '\n'.join(res)
@@ -14,28 +14,28 @@ def get_diff_plain(d_list, path=''):
                 diff = get_diff_plain(node['children'], path_to_ch)
                 res.extend(diff)
             case 'added':
-                ch = create_change(node['data'])
+                ch = сonvert_to_string(node['data'])
                 diff = (f"Property '{path_to_ch}' was added "
                         f"with value: {ch}")
                 res.append(diff)
             case 'deleted':
-                ch = create_change(node['data'])
+                ch = сonvert_to_string(node['data'])
                 diff = "Property '{}' was removed".format(path_to_ch)
                 res.append(diff)
             case 'changed':
-                ch_bef = create_change(node['data before'])
-                ch_aft = create_change(node['data after'])
+                ch_bef = сonvert_to_string(node['data before'])
+                ch_aft = сonvert_to_string(node['data after'])
                 diff = (f"Property '{path_to_ch}' was updated. "
                         f"From {ch_bef} to {ch_aft}")
                 res.append(diff)
-        if not node['status']:
-            raise ValueError('Invalid type!')
+            case 'not changed':
+                continue
+            case _:
+                raise ValueError('Invalid type!')
     return res
 
 
-def create_change(data):
-    """Анализирует данные узла. Возвращает его в правильном формате \
-в виде строки."""
+def сonvert_to_string(data):
     if type(data) is dict or type(data) is list:
         res = '[complex value]'
     elif data is False or data is True:

@@ -1,4 +1,4 @@
-def stylish(d_list, lvl=0):
+def create_stylish(d_list, lvl=0):
     res = []
     res.append('{\n')
     ind = ' ' * 2
@@ -6,17 +6,21 @@ def stylish(d_list, lvl=0):
     d_list.sort(key=lambda x: x['name'])
     for node in d_list:
         op = ' '
-        if not node['status']:
+        if node['status'] != 'nested' and \
+           node['status'] != 'changed' and \
+           node['status'] != 'not changed' and \
+           node['status'] != 'added' and \
+           node['status'] != 'deleted':
             raise ValueError('Invalid type!')
         elif node['status'] == 'nested':
-            data = stylish(node['children'], lvl + 1)
+            data = create_stylish(node['children'], lvl + 1)
         elif node['status'] == 'changed':
-            data = format_data(node['data before'], ind)
+            data = сonvert_to_string(node['data before'], ind)
             res.append(f"{ind}- {node['name']}: {data}\n")
-            data = format_data(node['data after'], ind)
+            data = сonvert_to_string(node['data after'], ind)
             op = '+'
         else:
-            data = format_data(node['data'], ind)
+            data = сonvert_to_string(node['data'], ind)
             match node['status']:
                 case 'added':
                     op = '+'
@@ -27,12 +31,12 @@ def stylish(d_list, lvl=0):
     return ''.join(res)
 
 
-def format_data(data, ind):
+def сonvert_to_string(data, ind):
     if type(data) is dict:
         ind = ind + '    '
         res = '{\n'
         for key in data.keys():
-            value = format_data(data[key], ind)
+            value = сonvert_to_string(data[key], ind)
             res = res + ind + '  ' + key + ': ' + value + '\n'
         res = res + ind[:-2] + '}'
     elif data is False or data is True:

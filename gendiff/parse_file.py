@@ -10,6 +10,7 @@ def get_dict_from_file(path_file):
 
 
 def open_file(path_file, file_ext):
+    print(path_file)
     path_file = os.path.basename(path_file)
     with open(Path() / 'tests/fixtures' / path_file) as f:
         if file_ext.lower() == '.json':
@@ -17,4 +18,4 @@ def open_file(path_file, file_ext):
         elif file_ext.lower() == '.yml' or file_ext.lower() == '.yaml':
             return yaml.safe_load(f)
         else:
-            raise ValueError('Files not found!')
+            raise ValueError('This file type is not supported!')

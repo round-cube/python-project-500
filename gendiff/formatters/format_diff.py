@@ -1,13 +1,13 @@
-from gendiff.formatters.stylish import stylish
-from gendiff.formatters.plain import plain
-from gendiff.formatters.json import jjson
+from gendiff.formatters.stylish import create_stylish
+from gendiff.formatters.plain import create_plain
+from gendiff.formatters.json import create_json
 
 
 def format_diff(l_diff, f_name):
     if f_name == 'stylish':
-        return stylish(l_diff)
+        return create_stylish(l_diff)
     elif f_name == 'plain':
-        return plain(l_diff)
+        return create_plain(l_diff)
     elif f_name == 'json':
-        return jjson(l_diff)
+        return create_json(l_diff)
     raise ValueError('Format not found!')
