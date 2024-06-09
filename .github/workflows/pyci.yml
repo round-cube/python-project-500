@@ -35,10 +35,11 @@ jobs:
         with:
           coverageCommand: make test-coverage
           debug: true
-          # run tests!
-          - run:
-              name: Run Tests and Code Coverage
-              command: | 
-                ./cc-test-reporter before-build
-                yarn lint && yarn test
-                ./cc-test-reporter after-build --debug -t lcov --exit-code $?
+
+      # run tests!
+      - run:
+          name: Run Tests and Code Coverage
+          command: | 
+            ./cc-test-reporter before-build
+            yarn lint && yarn test
+            ./cc-test-reporter after-build --debug -t lcov --exit-code $?
