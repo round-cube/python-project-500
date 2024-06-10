@@ -6,26 +6,24 @@ def create_stylish(d_list, lvl=0):
     d_list.sort(key=lambda x: x['name'])
     for node in d_list:
         op = ' '
-        if node['status'] != 'nested' and \
-           node['status'] != 'changed' and \
-           node['status'] != 'not changed' and \
-           node['status'] != 'added' and \
-           node['status'] != 'deleted':
-            raise ValueError('Invalid type!')
-        elif node['status'] == 'nested':
-            data = create_stylish(node['children'], lvl + 1)
-        elif node['status'] == 'changed':
-            data = сonvert_to_string(node['data before'], ind)
-            res.append(f"{ind}- {node['name']}: {data}\n")
-            data = сonvert_to_string(node['data after'], ind)
-            op = '+'
-        else:
-            data = сonvert_to_string(node['data'], ind)
-            match node['status']:
-                case 'added':
-                    op = '+'
-                case 'deleted':
-                    op = '-'
+        match node['status']:
+            case 'nested':
+                data = create_stylish(node['children'], lvl + 1)
+            case 'added':
+                data = сonvert_to_string(node['data'], ind)
+                op = '+'
+            case 'deleted':
+                data = сonvert_to_string(node['data'], ind)
+                op = '-'
+            case 'changed':
+                data = сonvert_to_string(node['data before'], ind)
+                res.append(f"{ind}- {node['name']}: {data}\n")
+                data = сonvert_to_string(node['data after'], ind)
+                op = '+'
+            case 'not changed':
+                data = сonvert_to_string(node['data'], ind)
+            case _:
+                raise ValueError('Invalid type!')
         res.append(f"{ind}{op} {node['name']}: {data}\n")
     res.append(ind[:-2] + '}')
     return ''.join(res)
