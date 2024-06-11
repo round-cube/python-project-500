@@ -19,10 +19,10 @@ make lint:
 test:
 	poetry run pytest
 
-test-coverage:
-	poetry run coverage run -m pytest 
-	poetry run coverage xml
+# test-coverage:
+#	poetry run coverage run -m pytest 
+#	poetry run coverage xml
 
 check: selfcheck test lint
 
-.PHONY: install test lint selfcheck check build
+# .PHONY: install test lint selfcheck check build
