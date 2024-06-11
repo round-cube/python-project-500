@@ -5,6 +5,7 @@
 
 [![Actions Status](https://github.com/EvgenyAleksov/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/EvgenyAleksov/python-project-50/actions)
 
+
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3c60500e8015d78e14ce/test_coverage)](https://codeclimate.com/github/EvgenyAleksov/python-project-50/test_coverage)
 
 
