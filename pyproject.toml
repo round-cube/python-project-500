@@ -21,8 +21,11 @@ gendiff = "gendiff.scripts.gendiff:main"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"
-coverage = "^5.5"
+coverage = {extras = ["toml"], version = "^7.5.3"}
 pytest = "^8.2.2"
+
+[tool.poetry.extras]
+toml = ["coverage"]
 
 [build-system]
 requires = ["poetry-core"]
